@@ -99,6 +99,10 @@ object LocationModule{
         timeIntervalInMilli : Long = TimeUnit.MINUTES.toMinutes(30),
         onLocationFoundOperation:(Location)->Unit
     ){
+        if(!this::activity.isInitialized){
+            logPrint(TAG, "initializeVariables: activity is not initialized")
+            return
+        }
         this.isRepeated = isRepeated
         this.updateTimeInterval = timeIntervalInMilli
         this.onLocationFoundOperation = onLocationFoundOperation

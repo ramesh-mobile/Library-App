@@ -1,4 +1,4 @@
-package com.sr.libraryapp.utils
+package com.sr.locationlib.utils
 
 
 import android.Manifest

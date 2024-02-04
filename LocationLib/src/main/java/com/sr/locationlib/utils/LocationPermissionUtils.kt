@@ -1,4 +1,4 @@
-package com.sr.libraryapp.utils
+package com.sr.locationlib.utils
 
 import android.app.Activity
 import android.content.Context
@@ -52,10 +52,10 @@ object LocationPermissionUtils {
         getLocationRequestCallBack: () -> Unit,
         onLocationFoundOperation: (Location) -> Unit
     ){
-        this.activity = activity
+        LocationPermissionUtils.activity = activity
         registerAllLauncher()
-        this.getLocationRequestCallBack = getLocationRequestCallBack
-        this.onLocationFoundOperation = onLocationFoundOperation
+        LocationPermissionUtils.getLocationRequestCallBack = getLocationRequestCallBack
+        LocationPermissionUtils.onLocationFoundOperation = onLocationFoundOperation
     }
 
     private fun registerAllLauncher(){
@@ -115,7 +115,7 @@ object LocationPermissionUtils {
     }
 
     private fun initializeVariables(locationRequest: LocationRequest) {
-        this.locationRequest = locationRequest
+        LocationPermissionUtils.locationRequest = locationRequest
         locationManager = activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         settingClient = LocationServices.getSettingsClient(activity)
 

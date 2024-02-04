@@ -1,4 +1,4 @@
-package com.sr.libraryapp.location
+package com.sr.locationlib.location
 
 import android.location.Location
 import android.os.Looper

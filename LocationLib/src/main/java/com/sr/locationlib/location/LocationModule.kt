@@ -1,4 +1,4 @@
-package com.sr.libraryapp.location
+package com.sr.locationlib.location
 
 import android.Manifest
 import android.content.Context
@@ -54,8 +54,8 @@ object LocationModule{
     private var onLocationFoundOperation : (Location)->Unit={}
 
     fun init(activity:AppCompatActivity){
-        this.activity = activity
-        LocationPermissionUtils.init(activity,getLocationRequestCallBack,onLocationFoundOperation)
+        LocationModule.activity = activity
+        LocationPermissionUtils.init(activity, getLocationRequestCallBack, onLocationFoundOperation)
 
     }
     private fun checkProvider(){
@@ -70,9 +70,15 @@ object LocationModule{
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, updateTimeInterval, 0f, onLocationChangedCallBack)
 
         } else if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,updateTimeInterval,0f,onLocationChangedCallBack)
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                updateTimeInterval,0f,
+                onLocationChangedCallBack
+            )
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,updateTimeInterval,0f,onLocationChangedCallBack)
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+            updateTimeInterval,0f,
+            onLocationChangedCallBack
+        )
         var locationNetwork = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
         var locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
@@ -103,18 +109,18 @@ object LocationModule{
             logPrint(TAG, "initializeVariables: activity is not initialized")
             return
         }
-        this.isRepeated = isRepeated
-        this.updateTimeInterval = timeIntervalInMilli
-        this.onLocationFoundOperation = onLocationFoundOperation
+        LocationModule.isRepeated = isRepeated
+        updateTimeInterval = timeIntervalInMilli
+        LocationModule.onLocationFoundOperation = onLocationFoundOperation
         locationManager = activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        this.locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,timeIntervalInMilli).build()
+        locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,timeIntervalInMilli).build()
         LocationPermissionUtils.checkPermission(locationRequest)
     }
 
     private fun startWakeLock(){
-        if(wakeLock==null) {
+        if(wakeLock ==null) {
             var powerManager: PowerManager = activity.getSystemService(Context.POWER_SERVICE) as PowerManager
-            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,WAKE_LOCK_TAG) as PowerManager.WakeLock
+            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, WAKE_LOCK_TAG) as PowerManager.WakeLock
         }
         wakeLock?.acquire()
     }

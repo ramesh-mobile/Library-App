@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.sr.libraryapp.databinding.ActivityMainBinding
-import com.sr.libraryapp.location.LocationModule
-import com.sr.libraryapp.utils.getLocationString
-import com.sr.libraryapp.utils.isInRadius
-import com.sr.libraryapp.utils.logPrint
+import com.sr.locationlib.location.LocationModule
+import com.sr.locationlib.utils.getLocationString
+import com.sr.locationlib.utils.isInRadius
+import com.sr.locationlib.utils.logPrint
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "onLocationChanged: ${it.getLocationString()}")
         binding.tvAppName.text = it.getLocationString()
-        logPrint(TAG, "getLocation: "+apiLocation.isInRadius(it,9.9f))
+        com.sr.locationlib.utils.logPrint(TAG, "getLocation: " + apiLocation.isInRadius(it, 9.9f))
     }
 }

@@ -11,10 +11,9 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
-import com.sr.libraryapp.utils.Const
-import com.sr.libraryapp.utils.LocationPermissionUtils
-import com.sr.libraryapp.utils.getLocationString
-import com.sr.libraryapp.utils.logPrint
+import com.sr.locationlib.utils.Const
+import com.sr.locationlib.utils.LocationPermissionUtils
+import com.sr.locationlib.utils.logPrint
 import java.util.concurrent.TimeUnit
 
 

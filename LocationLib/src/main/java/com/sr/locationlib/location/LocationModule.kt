@@ -1,29 +1,17 @@
 package com.sr.locationlib.location
 
-import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
-import android.os.Looper
 import android.os.PowerManager
-import android.util.Log
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.os.CancellationSignal
 import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
-import com.sr.libraryapp.utils.Const
-import com.sr.libraryapp.utils.LocationPermissionUtils
-import com.sr.libraryapp.utils.getLocationString
-import com.sr.libraryapp.utils.logPrint
-import com.sr.libraryapp.utils.showToast
+import com.sr.locationlib.utils.Const
+import com.sr.locationlib.utils.LocationPermissionUtils
+import com.sr.locationlib.utils.logPrint
 import java.util.concurrent.TimeUnit
 
 

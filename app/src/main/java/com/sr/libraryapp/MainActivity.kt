@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "onLocationChanged: ${it.getLocationString()}")
         binding.tvAppName.text = it.getLocationString()
-        com.sr.locationlib.utils.logPrint(TAG, "getLocation: " + apiLocation.isInRadius(it, 9.9f))
+        logPrint(TAG, "getLocation: " + apiLocation.isInRadius(it, 9.9f))
     }
 }

@@ -25,9 +25,9 @@ object LocationModule{
 
     private lateinit var locationRequest: LocationRequest
 
-    private val WAKE_LOCK_TAG = "LibraryApp:WAKE_LOCK_TAG";
+    private val WAKE_LOCK_TAG = "LibraryApp:WAKE_LOCK_TAG"
 
-    private var wakeLock : PowerManager.WakeLock? = null;
+    private var wakeLock : PowerManager.WakeLock? = null
 
     private val gadgetQ = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
 

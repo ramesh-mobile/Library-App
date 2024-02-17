@@ -80,7 +80,9 @@ object LocationModule{
         }
 
         var latestLoc = if(gpsLocationTime>networkLocationTime) locationGPS else locationNetwork
-        onLocationChangedCallBack.onLocationChanged(latestLoc!!)
+        if (latestLoc != null) {
+            onLocationChangedCallBack.onLocationChanged(latestLoc)
+        }
 
         if(!isRepeated)
             locationManager.removeUpdates(onLocationChangedCallBack)

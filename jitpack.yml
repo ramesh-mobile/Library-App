@@ -1,5 +1,9 @@
 jdk:
   - openjdk17
 before_install:
-  -sdk install java 17.0.7-open
-  -sdk use java 17.0.7-open
+  - sdk install java 17.0.7-open
+  - sdk use java 17.0.7-open
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - File="-Dfile=LocationLib-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.ramesh-mobile -DartifactId=LocationLib -Dversion=1.1.0 -Dpackaging=aar -DgeneratePom=true

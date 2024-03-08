@@ -20,7 +20,8 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
+                "consumer-rules.pro"
             )
         }
     }
@@ -32,12 +33,17 @@ android {
         jvmTarget = "1.8"
     }
 }
-
-publishing{
-    publications{
-        register<MavenPublication>("release"){
-            afterEvaluate{
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
                 from(components["release"])
+                groupId = "com.github.ramesh-mobile"
+                artifactId = "LocationLib"
+                version = "1.1.0"
+            }
+            repositories {
+                mavenLocal()
             }
         }
     }

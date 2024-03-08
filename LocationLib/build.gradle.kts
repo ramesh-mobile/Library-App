@@ -40,7 +40,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.ramesh-mobile"
                 artifactId = "LocationLib"
-                version = "1.1.0"
+                version = "1.1.2"
             }
             repositories {
                 mavenLocal()

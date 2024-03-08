@@ -10,7 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://www.jitpack.io" ) }
+        mavenLocal()
+        //maven { url = uri("https://www.jitpack.io" ) }
     }
 }
 
